@@ -4,7 +4,7 @@ export const LaundryItem = ({ name, address, id, jam_buka, jam_tutup }) => {
     <div className="shadow-sm p-4 rounded-md border bg-slate-50">
       <div className="flex justify-between items-center">
         <Link href={`/laundry/${id}`} relative="path">
-          <h2 className="font-extrabold text-blue-dark text-[18px]">{name}</h2>
+          <h2 className="font-bold text-blue-dark text-[18px]">{name}</h2>
         </Link>
         <span
           className={`text-xs font-medium me-2 px-2.5 py-0.5 rounded-lg bg-green-100 text-green-800`}
