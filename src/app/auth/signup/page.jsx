@@ -2,11 +2,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -24,6 +26,7 @@ export default function SignUp() {
   const handleSubmit = async(e) => {
     e.preventDefault()
     console.log(formData)
+    setIsLoading(true)
     try {
       const res = await axios.post('http://localhost:8081/v1/auth/signup',formData)
       console.log(res)
@@ -35,6 +38,8 @@ export default function SignUp() {
     } catch (error) {
       console.log(error)
     }
+    setIsLoading(false)
+    router.replace('/auth/signin')
   }
   return (
     <div className="flex justify-center items-center mt-20">
@@ -46,42 +51,26 @@ export default function SignUp() {
               htmlFor="firstname"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
-              Nama depan
+              Username
             </label>
             <input
               type="text"
-              name="firstName"
-              id="firstname"
+              name="username"
+              id="username"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
               placeholder="KOOKKO"
               onChange={handleChange}
-              value={formData.firstName}
+              value={formData.username}
               required
             />
           </div>
-          <div>
-            <label
-              htmlFor="lastname"
-              className="block mb-2 text-sm font-medium text-gray-900 "
-            >
-              Nama Belakang
-            </label>
-            <input
-              type="text"
-              name="lastName"
-              id="lastname"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-              placeholder="Has"
-              onChange={handleChange}
-              value={formData.lastName}
-            />
-          </div>
+          
           <div>
             <label
               htmlFor="username"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
-              Username
+              email
             </label>
             <input
               type="email"
@@ -117,7 +106,7 @@ export default function SignUp() {
             type="submit"
             className="w-full text-white bg-blue-dark font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >
-            Daftar
+            {isLoading ? "Loading..." : "Daftar"}
           </button>
           <div className="text-sm font-medium text-gray-500 ">
             Udah ada akun?{" "}

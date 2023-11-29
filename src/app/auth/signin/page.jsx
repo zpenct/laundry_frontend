@@ -1,8 +1,13 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useAuthContext } from "@/context/authContext";
 
 export default function SignIn() {
+  const {user, setUser} = useAuthContext()
+  const router = useRouter()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -22,15 +27,20 @@ export default function SignIn() {
     console.log(formData)
     try {
       const res = await axios.post('http://localhost:8081/v1/auth/signin',formData)
-      console.log(res)
+      console.log(res.data.data)
+      window.localStorage.setItem("user",JSON.stringify(res.data.data))
+      setUser(JSON.parse(window.localStorage.getItem("user")))
 
       if(!res.ok){
         throw new Error
       }
-      return res
+
+      // window.localStorage.setItem("user",JSON.stringify(res.data.data))
+
     } catch (error) {
-      console.log(error)
+      console.log(error.message)
     }
+    router.push('/')
   }
   return (
     <div className="flex justify-center items-center mt-20">
