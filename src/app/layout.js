@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gradient-soft h-screen`}>
+      <body className={`${inter.className} min-h-screen bg-gradient-to-tr from-sky-300 via-sky-200 to-blue-300`}>
         <AuthContextProvider>
           <Navbar />
           {children}

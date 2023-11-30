@@ -44,7 +44,7 @@ export default function SignIn() {
   }
   return (
     <div className="flex justify-center items-center mt-20">
-      <div className="shadow-xl w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg sm:p-6 md:p-8">
+      <div className="shadow-sm w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg sm:p-6 md:p-8">
         <form className="space-y-6" onSubmit={handleSubmit}>
           <h5 className="text-xl font-bold text-gray-900 ">
             Selamat datang kembali!
