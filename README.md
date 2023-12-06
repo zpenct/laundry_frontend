@@ -1,4 +1,4 @@
-#Search Laundry 
+# Search Laundry 
 <br/>
 Halaman untuk interface program Final project Laundry [https://github.com/zpenct/laundryFinal] .
 ## Getting Started
