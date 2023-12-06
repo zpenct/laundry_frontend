@@ -1,5 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+#Search Laundry 
+<br/>
+Halaman untuk interface program Final project Laundry [https://github.com/zpenct/laundryFinal] .
 ## Getting Started
 
 First, run the development server:
