@@ -1,6 +1,7 @@
 # Search Laundry 
 <br/>
-Halaman untuk interface program Final project Laundry [https://github.com/zpenct/laundryFinal] .
+Halaman untuk interface program Final project Laundry [https://github.com/zpenct/laundryFinal] . <br/>
+
 ## Getting Started
 
 First, run the development server:
